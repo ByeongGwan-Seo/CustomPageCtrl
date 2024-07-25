@@ -14,6 +14,7 @@
 		06B945062C52245C00EC78B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B945052C52245C00EC78B7 /* Assets.xcassets */; };
 		06B945092C52245C00EC78B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B945072C52245C00EC78B7 /* LaunchScreen.storyboard */; };
 		06B945112C5224A000EC78B7 /* CustomPageControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B945102C5224A000EC78B7 /* CustomPageControlCollectionViewCell.swift */; };
+		06B945152C522B0D00EC78B7 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B945142C522B0D00EC78B7 /* CustomPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		06B945082C52245C00EC78B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06B9450A2C52245C00EC78B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06B945102C5224A000EC78B7 /* CustomPageControlCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControlCollectionViewCell.swift; sourceTree = "<group>"; };
+		06B945142C522B0D00EC78B7 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				06B944FC2C52245B00EC78B7 /* AppDelegate.swift */,
 				06B944FE2C52245B00EC78B7 /* SceneDelegate.swift */,
 				06B945002C52245B00EC78B7 /* ViewController.swift */,
+				06B945142C522B0D00EC78B7 /* CustomPageControl.swift */,
 				06B945102C5224A000EC78B7 /* CustomPageControlCollectionViewCell.swift */,
 				06B945022C52245B00EC78B7 /* Main.storyboard */,
 				06B945052C52245C00EC78B7 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B945152C522B0D00EC78B7 /* CustomPageControl.swift in Sources */,
 				06B945112C5224A000EC78B7 /* CustomPageControlCollectionViewCell.swift in Sources */,
 				06B945012C52245B00EC78B7 /* ViewController.swift in Sources */,
 				06B944FD2C52245B00EC78B7 /* AppDelegate.swift in Sources */,

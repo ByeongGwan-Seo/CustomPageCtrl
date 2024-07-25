@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         return slideView
     }()
     
-    lazy var pageControl = UIPageControl()
+    lazy var pageControl = CustomPageControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,8 @@ class ViewController: UIViewController {
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .white
-        pageControl.addTarget(self, action: #selector(pageControlTouched(_:)), for: .valueChanged)
+        pageControl.delegate = self
+//        pageControl.addTarget(self, action: #selector(pageControlTouched(_:)), for: .valueChanged)
         pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         
         view.addSubview(collectionView)
@@ -64,12 +65,12 @@ class ViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-    @objc private func pageControlTouched(_ sender: UIPageControl) {
-        let targetIndex = sender.currentPage
-        let targetOffset = CGPoint(x: collectionView.frame.width * CGFloat(targetIndex), y: 0)
-        collectionView.setContentOffset(targetOffset, animated: true)
-        collectionView.scrollToItem(at: IndexPath(item: targetIndex, section: 0), at: .centeredHorizontally, animated: true)
-    }
+//    @objc private func pageControlTouched(_ sender: UIPageControl) {
+//        let targetIndex = sender.currentPage
+//        let targetOffset = CGPoint(x: collectionView.frame.width * CGFloat(targetIndex), y: 0)
+//        collectionView.setContentOffset(targetOffset, animated: true)
+//        collectionView.scrollToItem(at: IndexPath(item: targetIndex, section: 0), at: .centeredHorizontally, animated: true)
+//    }
 }
 
 extension ViewController: UICollectionViewDelegate {
@@ -92,5 +93,12 @@ extension ViewController: UICollectionViewDataSource {
         cell.configure(with: cellData.labelString, background: cellData.backgroundColor)
         
         return cell
+    }
+}
+
+extension ViewController: CustomPageControlDelegate {
+    func customPageControl(_ pageControl: UIPageControl, didTapIndicatorAtIndex index: Int) {
+        let targetOffset = CGPoint(x: collectionView.frame.width * CGFloat(index), y: 0)
+        collectionView.setContentOffset(targetOffset, animated: false)
     }
 }
