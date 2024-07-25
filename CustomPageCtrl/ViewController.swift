@@ -50,16 +50,25 @@ class ViewController: UIViewController {
         
         collectionView.frame = view.bounds
         
-        pageControl.frame = CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50)
+        pageControl.frame = CGRect(x: 0, y: view.frame.height - 200, width: view.frame.width, height: 50)
         pageControl.numberOfPages = cells.count
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .white
+        pageControl.addTarget(self, action: #selector(pageControlTouched(_:)), for: .valueChanged)
+        pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         
         view.addSubview(collectionView)
         view.addSubview(pageControl)
         
         view.layoutIfNeeded()
+    }
+    
+    @objc private func pageControlTouched(_ sender: UIPageControl) {
+        let targetIndex = sender.currentPage
+        let targetOffset = CGPoint(x: collectionView.frame.width * CGFloat(targetIndex), y: 0)
+        collectionView.setContentOffset(targetOffset, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: targetIndex, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
 
